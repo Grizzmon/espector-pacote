@@ -22,10 +22,10 @@ export const plans: Plan[] = [
     price: 47.9,
     checkoutUrl: 'https://go.hotmart.com/D107214279J',
     features: [
-      'Característica 1 (edite aqui)',
-      'Característica 2 (edite aqui)',
-      'Característica 3 (edite aqui)',
-      'Característica 4 (edite aqui)',
+      'Rastreie conversas de um numero com acesso a tres fotos e registros de chamadas',
+      'Receba notificaçao quando o numero suspeito estiver em conversa com seu parceiro',
+      'Acompanhe a chamda em tempo real sem que ninguem saiba',
+      'Ative uma vez e monitore seus contatos',
     ],
   },
   {
@@ -39,10 +39,12 @@ export const plans: Plan[] = [
     checkoutUrl: 'https://go.hotmart.com/W107219861R',
     features: [
       'Tudo do plano 2.0',
-      'Característica 1 (edite aqui)',
-      'Característica 2 (edite aqui)',
-      'Característica 3 (edite aqui)',
-      'Característica 4 (edite aqui)',
+      'Sistema rastreiador sem barreira, rasteria qualquer numero',
+      'fotos de visualizaçao unicas disponiveis',
+      'Acesso a fotos e videos sem sensura nenhuma ',
+      'Especione quantos numeros quiser sem limitaçao',
+      'Localizaçao em tempo real e acompanhamento de chamadas em tempo real',
+      'Suporte e Atualizaçao em primeira mao e garantia',
     ],
   },
   {
@@ -56,10 +58,11 @@ export const plans: Plan[] = [
     checkoutUrl: 'https://go.hotmart.com/H107219899X',
     features: [
       'Tudo do plano Pro Plus',
-      'Recurso exclusivo 1 (edite aqui)',
-      'Recurso exclusivo 2 (edite aqui)',
-      'Recurso exclusivo 3 (edite aqui)',
-      'Acesso ilimitado (edite aqui)',
+      'Rastrei numeros sem ter que esperar na fila, em poucos segundos.',
+      'Acompanhe o hitorico de chamada de video',
+      'fotos de visualiçao unica',
+      'Uso definitivo e com atualizaçoes suporte em primeira mao',
+      'Localizaçao em tempo real e acompanhamento de chamadas em tempo real',
     ],
   },
 ]
