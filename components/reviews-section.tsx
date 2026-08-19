@@ -5,22 +5,22 @@ const reviews = [
   {
     name: 'Ricardo M.',
     initials: 'RM',
-    text: 'Melhor decisão que tomei. Simples de usar e o suporte respondeu na hora. Recomendo demais!',
+    text: 'Melhor decisão que tomei. Graças a Deus o meu nn ta me chifrando gente kkkk!',
   },
   {
     name: 'Ana Paula S.',
     initials: 'AS',
-    text: 'Fiquei receosa no início, mas o pagamento é super seguro e o acesso foi imediato. Vale cada centavo.',
+    text: 'Fiquei receosa no início, mas o pagamento é super seguro e o acesso foi imediato. Vale cada centavo para ter confiança no relacinamento so que me desapontei o que vi com meu namorado.',
   },
   {
     name: 'Bruno F.',
     initials: 'BF',
-    text: 'O plano Pro Plus é sensacional pelo preço. Já indiquei para vários amigos.',
+    text: 'MDS justo a moça que fiquei flertando a meses e ela ta dando para o proprio primo.',
   },
   {
     name: 'Carla D.',
     initials: 'CD',
-    text: 'Atendimento nota 10 e tudo funcionou perfeitamente. Ambiente confiável de verdade.',
+    text: 'Atendimento nota 10 e tudo funcionou perfeitamente. Ambiente confiável de verdade achei que foce mais um app qualquer.',
   },
   {
     name: 'Felipe R.',
