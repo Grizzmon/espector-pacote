@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react' // <--- 1. Importe o useEffect aqui
+import { useEffect } from 'react' // 1. Importa o useEffect
 import { Check, Crown, Sparkles, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Stars } from '@/components/stars'
@@ -10,14 +10,12 @@ import { trackPurchase } from '@/lib/fbq'
 
 function PlanCard({ plan }: { plan: Plan }) {
   function handleBuy() {
-    // Dispara o evento de compra no Meta Pixel ao clicar.
     trackPurchase({
       planId: plan.id,
       planName: plan.name,
       value: plan.price,
     })
 
-    // Se houver link de checkout, redireciona.
     if (plan.checkoutUrl) {
       window.location.href = plan.checkoutUrl
     }
@@ -135,14 +133,12 @@ function PlanCard({ plan }: { plan: Plan }) {
 }
 
 export function PlansSection() {
-  // 2. Adicione o useEffect aqui para disparar assim que o componente for montado na tela
+  // 2. Dispara o evento customizado assim que esta seção aparecer na tela
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('trackCustom', 'AlguemAcessouPaginaBRLPrecos', {
+    if (typeof window !== 'undefined' && (window as any).fbq) {
+      (window as any).fbq('trackCustom', 'AlguemAcessouPaginaBRLPrecos', {
         pagina: 'pagina_de_planos',
         moeda: 'BRL',
-        site_origem: 'espector',
-        pais_alvo: 'Brasil'
       })
     }
   }, [])
