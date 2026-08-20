@@ -40,12 +40,13 @@ export default function RootLayout({
 
             fbq('init', '829061486173119');
 
-            // Evento padrão do Meta (necessário para otimização de entrega e remarketing)
+            // Evento padrão do Meta
             fbq('track', 'PageView');
 
-            // Evento customizado — este é o que vai aparecer nomeado no Gerenciador de Eventos
-            fbq('trackCustom', 'AcessouPaginaPlanosBrasil', {
+            // Evento customizado com o nome desejado para a página de preços
+            fbq('trackCustom', 'AlguemAcessouPaginaBRLPrecos', {
               pagina: 'pagina_de_planos',
+              moeda: 'BRL',
               site_origem: 'espector',
               pais_alvo: 'Brasil'
             });
