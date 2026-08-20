@@ -37,10 +37,16 @@ export default function RootLayout({
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
+
             fbq('init', '829061486173119');
-            fbq('track', 'PageView', {
+
+            // Evento padrão do Meta (necessário para otimização de entrega e remarketing)
+            fbq('track', 'PageView');
+
+            // Evento customizado — este é o que vai aparecer nomeado no Gerenciador de Eventos
+            fbq('trackCustom', 'AcessouPaginaPlanosBrasil', {
               pagina: 'pagina_de_planos',
-              site_origem: 'IDENTIFICADOR_SITE',
+              site_origem: 'espector',
               pais_alvo: 'Brasil'
             });
           `}
