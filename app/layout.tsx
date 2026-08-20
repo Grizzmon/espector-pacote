@@ -43,7 +43,7 @@ export default function RootLayout({
             // Evento padrão do Meta
             fbq('track', 'PageView');
 
-            // Evento customizado com o nome desejado para a página de preços
+            // Evento customizado garantido assim que o pixel carrega
             fbq('trackCustom', 'AlguemAcessouPaginaBRLPrecos', {
               pagina: 'pagina_de_planos',
               moeda: 'BRL',
