@@ -1,12 +1,19 @@
 'use client'
 
-import { useEffect } from 'react' // 1. Importa o useEffect
+import { useEffect } from 'react'
 import { Check, Crown, Sparkles, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Stars } from '@/components/stars'
 import { cn } from '@/lib/utils'
 import { formatBRL, plans, type Plan } from '@/lib/plans'
 import { trackPurchase } from '@/lib/fbq'
+
+// Adicionando a tipagem para evitar erros de compilação
+declare global {
+  interface Window {
+    fbq: (track: string, event: string, params?: Record<string, unknown>) => void
+  }
+}
 
 function PlanCard({ plan }: { plan: Plan }) {
   function handleBuy() {
@@ -133,12 +140,15 @@ function PlanCard({ plan }: { plan: Plan }) {
 }
 
 export function PlansSection() {
-  // 2. Dispara o evento customizado assim que esta seção aparecer na tela
+  
+  // Garantia: Dispara o evento ao carregar o componente, igual ao seu código que funciona
   useEffect(() => {
-    if (typeof window !== 'undefined' && (window as any).fbq) {
-      (window as any).fbq('trackCustom', 'AlguemAcessouPaginaBRLPrecos', {
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('trackCustom', 'AlguemAcessouPaginaBRLPrecos', {
         pagina: 'pagina_de_planos',
         moeda: 'BRL',
+        site_origem: 'espector',
+        pais_alvo: 'Brasil'
       })
     }
   }, [])
