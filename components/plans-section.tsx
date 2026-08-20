@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react' // <--- 1. Importe o useEffect aqui
 import { Check, Crown, Sparkles, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Stars } from '@/components/stars'
@@ -134,6 +135,18 @@ function PlanCard({ plan }: { plan: Plan }) {
 }
 
 export function PlansSection() {
+  // 2. Adicione o useEffect aqui para disparar assim que o componente for montado na tela
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('trackCustom', 'AlguemAcessouPaginaBRLPrecos', {
+        pagina: 'pagina_de_planos',
+        moeda: 'BRL',
+        site_origem: 'espector',
+        pais_alvo: 'Brasil'
+      })
+    }
+  }, [])
+
   return (
     <section id="planos" className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
       <div className="mx-auto max-w-2xl text-center">
