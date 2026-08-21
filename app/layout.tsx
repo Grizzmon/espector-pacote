@@ -43,13 +43,15 @@ export default function RootLayout({
             // Evento padrão do Meta
             fbq('track', 'PageView');
 
-            // Evento customizado garantido assim que o pixel carrega.
-            // Fonte única de disparo — NÃO duplicar em outros componentes.
-            fbq('trackCustom', 'PaginaDePlanosBRL', {
-              pagina: 'pagina_de_planos',
-              moeda: 'BRL',
-              site_origem: 'espector',
-              pais_alvo: 'Brasil'
+            // Evento padrão ViewContent — NÃO é suprimido pelo Meta como os
+            // eventos customizados não verificados. Fonte única de disparo.
+            // Os parâmetros permitem segmentar a Página de Planos BRL.
+            fbq('track', 'ViewContent', {
+              content_name: 'PaginaDePlanosBRL',
+              content_category: 'pagina_de_planos',
+              currency: 'BRL',
+              pais_alvo: 'Brasil',
+              site_origem: 'espector'
             });
           `}
         </Script>
