@@ -1,19 +1,11 @@
 'use client'
 
-import { useEffect } from 'react'
 import { Check, Crown, Sparkles, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Stars } from '@/components/stars'
 import { cn } from '@/lib/utils'
 import { formatBRL, plans, type Plan } from '@/lib/plans'
 import { trackPurchase } from '@/lib/fbq'
-
-// Adicionando a tipagem para evitar erros de compilação
-declare global {
-  interface Window {
-    fbq: (track: string, event: string, params?: Record<string, unknown>) => void
-  }
-}
 
 function PlanCard({ plan }: { plan: Plan }) {
   function handleBuy() {
@@ -140,19 +132,6 @@ function PlanCard({ plan }: { plan: Plan }) {
 }
 
 export function PlansSection() {
-  
-  // Garantia: Dispara o evento ao carregar o componente, igual ao seu código que funciona
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('trackCustom', 'AlguemAcessouPaginaBRLPrecos', {
-        pagina: 'pagina_de_planos',
-        moeda: 'BRL',
-        site_origem: 'espector',
-        pais_alvo: 'Brasil'
-      })
-    }
-  }, [])
-
   return (
     <section id="planos" className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
       <div className="mx-auto max-w-2xl text-center">
