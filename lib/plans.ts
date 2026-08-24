@@ -16,11 +16,11 @@ export type Plan = {
 
 export const plans: Plan[] = [
   {
-    id: '8337992',
+    id: '3899115',
     name: 'ESPECTOR 2.0',
     tagline: 'O essencial para começar com segurança.',
     price: 47.9,
-    checkoutUrl: 'https://go.hotmart.com/D107214279J',
+    checkoutUrl: 'https://checkout.escalepay.com/3899115',
     features: [
       'Rastreie conversas de um numero com acesso a tres fotos e registros de chamadas',
       'Receba notificaçao quando o numero suspeito estiver em conversa com seu parceiro',
@@ -29,14 +29,14 @@ export const plans: Plan[] = [
     ],
   },
   {
-    id: '8340467',
+    id: '2206074',
     name: 'ESPECTOR PRO PLUS',
     tagline: 'O favorito de quem quer o melhor custo-benefício.',
     priceOld: 369,
     price: 89.9,
     highlight: true,
     badge: 'MAIS VENDIDO',
-    checkoutUrl: 'https://go.hotmart.com/W107219861R',
+    checkoutUrl: 'https://checkout.escalepay.com/2206074',
     features: [
       'Tudo do plano 2.0',
       'Sistema rastreiador sem barreira, rasteria qualquer numero',
@@ -48,14 +48,14 @@ export const plans: Plan[] = [
     ],
   },
   {
-    id: '8340486',
+    id: '4854382',
     name: 'ESPECTOR NO LIMITS',
     tagline: 'A experiência elite, sem limites.',
     priceOld: 679,
     price: 159.99,
     elite: true,
     badge: 'ELITE',
-    checkoutUrl: 'https://go.hotmart.com/H107219899X',
+    checkoutUrl: 'https://checkout.escalepay.com/4854382',
     features: [
       'Tudo do plano Pro Plus',
       'Rastrei numeros sem ter que esperar na fila, em poucos segundos.',
