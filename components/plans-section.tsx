@@ -1,34 +1,42 @@
 'use client'
 
-import { useEffect } from 'react'
 import { Check, Crown, Sparkles, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Stars } from '@/components/stars'
 import { cn } from '@/lib/utils'
 import { formatBRL, plans, type Plan } from '@/lib/plans'
-import { trackPurchase } from '@/lib/fbq'
 
-// Adicionando a tipagem para evitar erros de compilação
 declare global {
   interface Window {
-    fbq: (track: string, event: string, params?: Record<string, unknown>) => void
+    fbq?: (
+      track: string,
+      event: string,
+      params?: Record<string, unknown>
+    ) => void
   }
 }
 
 function PlanCard({ plan }: { plan: Plan }) {
   function handleBuy() {
-    trackPurchase({
-      planId: plan.id,
-      planName: plan.name,
-      value: plan.price,
-    })
+    // Evento: pessoa iniciou o checkout
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'InitiateCheckout', {
+        value: plan.price,
+        currency: 'BRL',
+        content_ids: [plan.id],
+        content_name: plan.name,
+        content_type: 'product',
+      })
+    }
 
+    // Envia o cliente para o checkout
     if (plan.checkoutUrl) {
       window.location.href = plan.checkoutUrl
     }
   }
 
   const Icon = plan.elite ? Crown : plan.highlight ? Zap : Sparkles
+
   const discount =
     plan.priceOld != null
       ? Math.round(((plan.priceOld - plan.price) / plan.priceOld) * 100)
@@ -70,6 +78,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         >
           <Icon width={20} height={20} />
         </span>
+
         <div>
           <h3 className="text-base font-bold text-card-foreground">
             {plan.name}
@@ -88,6 +97,7 @@ function PlanCard({ plan }: { plan: Plan }) {
             <span className="text-sm text-muted-foreground line-through">
               {formatBRL(plan.priceOld)}
             </span>
+
             {discount != null && (
               <span className="rounded-md bg-destructive/10 px-1.5 py-0.5 text-xs font-bold text-destructive">
                 -{discount}%
@@ -95,11 +105,13 @@ function PlanCard({ plan }: { plan: Plan }) {
             )}
           </div>
         )}
+
         <div className="flex items-end gap-1">
           <span className="text-4xl font-extrabold tracking-tight text-card-foreground">
             {formatBRL(plan.price)}
           </span>
         </div>
+
         <p className="mt-1 text-xs text-muted-foreground">
           Pagamento único · acesso imediato
         </p>
@@ -132,6 +144,7 @@ function PlanCard({ plan }: { plan: Plan }) {
       >
         Comprar agora
       </Button>
+
       <p className="mt-3 text-center text-xs text-muted-foreground">
         Compra 100% segura e protegida
       </p>
@@ -140,25 +153,13 @@ function PlanCard({ plan }: { plan: Plan }) {
 }
 
 export function PlansSection() {
-  
-  // Garantia: Dispara o evento ao carregar o componente, igual ao seu código que funciona
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('trackCustom', 'AlguemAcessouPaginaBRLPrecos', {
-        pagina: 'pagina_de_planos',
-        moeda: 'BRL',
-        site_origem: 'espector',
-        pais_alvo: 'Brasil'
-      })
-    }
-  }, [])
-
   return (
     <section id="planos" className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-balance text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
           Nossos planos
         </h2>
+
         <p className="mt-3 text-pretty text-muted-foreground">
           Escolha o acesso que combina com você. Todos com garantia e
           pagamento protegido.
