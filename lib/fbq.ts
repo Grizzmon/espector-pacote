@@ -1,28 +1,30 @@
-// Identificador do site usado nos eventos do Meta Pixel.
-// Edite este valor com o nome/identificador do seu site.
-export const SITE_ORIGEM = 'IDENTIFICADOR_SITE'
+export const SITE_ORIGEM = 'espector'
 export const PAIS_ALVO = 'Brasil'
 
 declare global {
   interface Window {
-    fbq?: (...args: unknown[]) => void
+    fbq?: (
+      track: string,
+      event: string,
+      params?: Record<string, unknown>
+    ) => void
   }
 }
 
-type PurchaseEvent = {
+export function trackInitiateCheckout({
+  planId,
+  planName,
+  value,
+}: {
   planId: string
   planName: string
   value: number
-}
+}) {
+  if (typeof window === 'undefined' || typeof window.fbq !== 'function') {
+    return
+  }
 
-/**
- * Dispara o evento de compra no Meta Pixel quando o usuário clica
- * no botão de um plano.
- */
-export function trackPurchase({ planId, planName, value }: PurchaseEvent) {
-  if (typeof window === 'undefined' || typeof window.fbq !== 'function') return
-
-  window.fbq('track', 'Purchase', {
+  window.fbq('track', 'InitiateCheckout', {
     value,
     currency: 'BRL',
     content_ids: [planId],
