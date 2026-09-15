@@ -1,6 +1,14 @@
 'use client'
 
-import { Check, Crown, Sparkles, Zap } from 'lucide-react'
+import {
+  Check,
+  CreditCard,
+  Crown,
+  QrCode,
+  ShieldCheck,
+  Sparkles,
+  Zap,
+} from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Stars } from '@/components/stars'
 import { cn } from '@/lib/utils'
@@ -36,6 +44,10 @@ function PlanCard({ plan }: { plan: Plan }) {
   }
 
   const Icon = plan.elite ? Crown : plan.highlight ? Zap : Sparkles
+
+  const checkoutProvider = plan.checkoutUrl?.includes('kiwify')
+    ? 'Kiwify'
+    : 'EscalePay'
 
   const discount =
     plan.priceOld != null
@@ -130,11 +142,44 @@ function PlanCard({ plan }: { plan: Plan }) {
         ))}
       </ul>
 
+      <ul
+        aria-label="Formas de pagamento e garantia"
+        className="mt-6 grid grid-cols-3 gap-2 rounded-xl border border-border bg-secondary/40 p-3"
+      >
+        <li className="flex flex-col items-center gap-1 text-center">
+          <QrCode width={18} height={18} className="text-primary" />
+          <span className="text-[11px] font-semibold leading-tight text-card-foreground">
+            PIX
+          </span>
+          <span className="text-[10px] leading-tight text-muted-foreground">
+            aprovação na hora
+          </span>
+        </li>
+        <li className="flex flex-col items-center gap-1 text-center">
+          <CreditCard width={18} height={18} className="text-primary" />
+          <span className="text-[11px] font-semibold leading-tight text-card-foreground">
+            Cartão
+          </span>
+          <span className="text-[10px] leading-tight text-muted-foreground">
+            parcele no checkout
+          </span>
+        </li>
+        <li className="flex flex-col items-center gap-1 text-center">
+          <ShieldCheck width={18} height={18} className="text-primary" />
+          <span className="text-[11px] font-semibold leading-tight text-card-foreground">
+            7 dias
+          </span>
+          <span className="text-[10px] leading-tight text-muted-foreground">
+            de garantia total
+          </span>
+        </li>
+      </ul>
+
       <Button
         onClick={handleBuy}
         size="lg"
         className={cn(
-          'mt-6 h-12 w-full text-base font-bold',
+          'mt-3 h-12 w-full text-base font-bold',
           plan.highlight
             ? 'bg-primary text-primary-foreground hover:bg-primary/90'
             : plan.elite
@@ -146,7 +191,8 @@ function PlanCard({ plan }: { plan: Plan }) {
       </Button>
 
       <p className="mt-3 text-center text-xs text-muted-foreground">
-        Compra 100% segura e protegida
+        Compra 100% segura · você finaliza no checkout protegido da{' '}
+        {checkoutProvider}
       </p>
     </div>
   )
