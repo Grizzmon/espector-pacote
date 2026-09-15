@@ -57,7 +57,7 @@ export const plans: Plan[] = [
     price: 159.99,
     elite: true,
     badge: 'ELITE',
-    checkoutUrl: 'https://checkout.escalepay.com/4854382',
+    checkoutUrl: 'https://pay.kiwify.com.br/vY0Pe6j',
     features: [
       'Tudo do plano PRO PLUS',
       'Resultados em segundos: prioridade máxima, zero espera',
