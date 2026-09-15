@@ -15,11 +15,11 @@ export const plans: Plan[] = [
   {
     id: '3899115',
     name: 'ESPECTOR 2.0',
-    tagline: 'Descubra a verdade de um número em minutos, sem deixar rastro.',
+    tagline: 'Descubra a verdade em minutos, sem deixar rastro.',
     price: 47.9,
     checkoutUrl: 'https://pay.kiwify.com.br/BgTy28q',
     features: [
-      'Rastreie todas as conversas de 1 número, incluindo mensagens apagadas',
+      'Rastreie até 7 números por dia, incluindo mensagens apagadas',
       'Recupere fotos e vídeos enviados mesmo depois de excluídos',
       'Registro completo de chamadas: quem ligou, quando e por quanto tempo',
       'Alerta instantâneo quando o número suspeito falar com seu parceiro(a)',

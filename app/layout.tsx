@@ -24,7 +24,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${inter.variable} bg-background`}>
+    <html
+      lang="pt-BR"
+      className={`${inter.variable} scroll-smooth bg-background`}
+    >
       <head>
         {/* Meta Pixel Code */}
         <Script id="meta-pixel" strategy="afterInteractive">

@@ -195,7 +195,10 @@ function PlanCard({ plan }: { plan: Plan }) {
 
 export function PlansSection() {
   return (
-    <section id="planos" className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
+    <section
+      id="planos"
+      className="mx-auto max-w-6xl scroll-mt-20 px-4 py-16 sm:py-20"
+    >
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-balance text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
           Nossos planos

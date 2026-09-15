@@ -1,5 +1,6 @@
-import { BadgeCheck, Lock, Users } from 'lucide-react'
+import { ArrowDown, BadgeCheck, Lock, Users } from 'lucide-react'
 import { Stars } from '@/components/stars'
+import { Button } from '@/components/ui/button'
 
 export function Hero() {
   return (
@@ -27,6 +28,17 @@ export function Hero() {
           Acesso imediato, pagamento protegido e privacidade garantida. Junte-se
           a milhares de pessoas que já confiam no Espector.
         </p>
+
+        <Button
+          asChild
+          size="lg"
+          className="mt-8 h-13 px-8 text-base font-bold shadow-lg shadow-primary/30"
+        >
+          <a href="#planos" className="inline-flex items-center gap-2 whitespace-nowrap">
+            Escolher meu plano
+            <ArrowDown width={18} height={18} aria-hidden="true" />
+          </a>
+        </Button>
 
         <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-8">
           <div className="flex items-center gap-2">
