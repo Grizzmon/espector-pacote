@@ -45,10 +45,6 @@ function PlanCard({ plan }: { plan: Plan }) {
 
   const Icon = plan.elite ? Crown : plan.highlight ? Zap : Sparkles
 
-  const checkoutProvider = plan.checkoutUrl?.includes('kiwify')
-    ? 'Kiwify'
-    : 'EscalePay'
-
   const discount =
     plan.priceOld != null
       ? Math.round(((plan.priceOld - plan.price) / plan.priceOld) * 100)
@@ -191,8 +187,7 @@ function PlanCard({ plan }: { plan: Plan }) {
       </Button>
 
       <p className="mt-3 text-center text-xs text-muted-foreground">
-        Compra 100% segura · você finaliza no checkout protegido da{' '}
-        {checkoutProvider}
+        Compra 100% segura · ativação pelo Agente META IA
       </p>
     </div>
   )
