@@ -17,7 +17,7 @@ export const plans: Plan[] = [
     name: 'ESPECTOR 2.0',
     tagline: 'O essencial para começar com segurança.',
     price: 47.9,
-    checkoutUrl: 'https://checkout.escalepay.com/3899115',
+    checkoutUrl: 'https://pay.kiwify.com.br/BgTy28q',
     features: [
       'Rastreie conversas de um numero com acesso a tres fotos e registros de chamadas',
       'Receba notificaçao quando o numero suspeito estiver em conversa com seu parceiro',
