@@ -33,7 +33,7 @@ export const plans: Plan[] = [
     price: 89.9,
     highlight: true,
     badge: 'MAIS VENDIDO',
-    checkoutUrl: 'https://checkout.escalepay.com/2206074',
+    checkoutUrl: 'https://pay.kiwify.com.br/qnxTYjF',
     features: [
       'Tudo do plano 2.0',
       'Sistema rastreiador sem barreira, rasteria qualquer numero',
